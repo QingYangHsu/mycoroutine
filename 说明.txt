@@ -1,0 +1,29 @@
+协程相关
+    fiber.h
+    fiber.cc
+    test_fiber.cc(挺简单的 通过该文件对fiber相关可以很好的理解)
+调度器相关
+    scheduler.h
+    scheduler.cc
+    simple_fiber_scheduler.cc
+    test_scheduler.cc(key)      关键点：当工作子协程yield时，cpu返回给线程的调度协程
+定时器
+    timer.h
+    timer.cc
+    test_timer.cc               //比较简单 并且这个timer的实现比较糙 就是一个有序数组 类似双向链表
+hook
+    hook.cc
+    hook.h
+    fd_manager.h
+    fd_manager.cc
+    test_hook.cc 
+iomanager相关
+    iomanager.h
+    iomanager.cc
+    test_iomanager.cc           //这个比较难理解 非常复杂 常看常新
+                                                
+性能测试
+    test1.cc            使用mysylar的fiber imoananger 以及hook 是关键
+    test2.cc            使用libco //有点麻烦 暂时没看懂 考虑去看一下libco的源码
+    test3.cc            使用libevent 还行
+    test4.cc            使用原生调用 简单
